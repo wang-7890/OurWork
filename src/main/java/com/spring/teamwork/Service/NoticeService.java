@@ -1,5 +1,6 @@
 package com.spring.teamwork.Service;
 
+import com.spring.teamwork.model.Enum.NotificationType;
 import com.spring.teamwork.model.PageVO;
 import com.spring.teamwork.model.VO.NoticeUnreadCountVO;
 import com.spring.teamwork.model.VO.NotificationVO;
@@ -21,4 +22,6 @@ public interface NoticeService {
 
     /** 全部标记已读（接口文档 8.3：all=true 或 ids=[]） */
     void markAllRead(Long userId);
+
+    void sendNotification(Long userId, String title, Long contractId, NotificationType type);
 }
