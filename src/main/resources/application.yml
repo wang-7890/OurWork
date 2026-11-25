@@ -37,13 +37,13 @@ mybatis-plus:
         logic-delete-value: 1
         logic-not-delete-value: 0
 sa-token:
-    token-name: Authorization
-    timeout: 86400
-    active-timeout: -1                   # 无自动下线，跟随 timeout
-    is-concurrent: true                 # 多端同时登录
-    is-share: false                      # 每次登录独立 token
-    token-style: uuid
-    is-log: false
+  token-name: Authorization
+  timeout: 86400
+  active-timeout: -1                   # 无自动下线，跟随 timeout
+  is-concurrent: true                 # 多端同时登录
+  is-share: false                      # 每次登录独立 token
+  token-style: uuid
+  is-log: false
 
   #demo:
   #  enabled:false

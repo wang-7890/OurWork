@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface AccTransactionMapper extends BaseMapper<AccTransaction> {
-    @Select("SELECT COALESCE(SUM(amount), 0) FROM acc_transaction WHERE user_id = #{userId} AND remark = 'DEDUCT'")
+//    @Select("SELECT COALESCE(SUM(amount), 0) FROM acc_transaction WHERE user_id = #{userId} AND remark = 'DEDUCT'")
+    @Select(" SELECT COALESCE(SUM(amount), 0 )FROM acc_transaction WHERE user_id = #{userId} AND type = 'DEDUCT'")
     int countDeducted(@Param("userId") Long userId);
 }

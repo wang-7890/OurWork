@@ -3,7 +3,6 @@ package com.spring.teamwork.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.spring.teamwork.model.Entity.BetVote;
 import com.spring.teamwork.model.Enum.Verdict;
-import com.spring.teamwork.model.VO.ContractDetailVO;
 import com.spring.teamwork.model.VO.VerdictVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

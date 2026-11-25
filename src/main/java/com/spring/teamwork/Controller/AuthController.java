@@ -6,6 +6,7 @@ import com.spring.teamwork.model.Result;
 import com.spring.teamwork.model.VO.UserVO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
-
+   @Autowired
     private final UserService userService;
 
     /** 注册（2.1）—— 注册即登录，返回 token + giftAmount */

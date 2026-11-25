@@ -53,7 +53,7 @@ public class AccountServiceImpl implements AccountService {
                     transactionVO.setCreatedAt(accTransaction.getCreatedAt());
                     transactionVO.setType(accTransaction.getType());
                     transactionVO.setContractId(accTransaction.getContractId());
-                    transactionVO.setAmount(transactionVO.getAmount());
+                    transactionVO.setAmount(accTransaction.getAmount());
                     transactionVO.setBalanceAfter(accTransaction.getBalanceAfter());
                     transactionVO.setRemark(accTransaction.getRemark());
                     transactionVO.setContractTitle(contractMapper.getTitle(accTransaction.getContractId()));
