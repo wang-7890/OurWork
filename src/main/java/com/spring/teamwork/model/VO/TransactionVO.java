@@ -2,6 +2,7 @@ package com.spring.teamwork.model.VO;
 
 import com.spring.teamwork.model.Enum.TransactionType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class TransactionVO {
     private Long transactionId;
     private TransactionType type;

@@ -16,4 +16,10 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
     @Update("UPDATE sys_user SET balance = balance - #{deposit}, frozen = frozen + #{deposit} " +
             "WHERE id = #{userId} AND balance >= #{deposit}")
     int freezeDeposit(@Param("userId") Long userId, @Param("deposit") Integer deposit);
+    @Update("UPDATE sys_user SET balance = balance+#{deposit},frozen = frozen - #{deposit} WHERE id = #{userId}" +
+            "AND frozen >= #{deposit}")
+    void unfreezeDeposit(@Param("userId") Long userId,@Param("deposit") Integer deposit);
+    @Update("UPDATE sys_user SET frozen = frozen - #{deposit} WHERE id = #{userId}" +
+            "AND frozen >=#{deposit}")
+    void deductDeposit(@Param("userId") Long userId,@Param("deposit") Integer deposit);
 }
