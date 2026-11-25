@@ -21,7 +21,7 @@ public class NoticeServiceImpl implements NoticeService {
 
     private final SysNotificationMapper sysNotificationMapper;
 
-
+    @Override
     public void sendNotification(Long userId, String title, Long contractId, NotificationType type) {
         SysNotification n = new SysNotification();
         n.setUserId(userId);

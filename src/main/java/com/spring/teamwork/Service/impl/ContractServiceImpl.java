@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.spring.teamwork.Exception.common.BizException;
 import com.spring.teamwork.Mapper.*;
 import com.spring.teamwork.Service.ContractService;
+import com.spring.teamwork.Service.NoticeService;
 import com.spring.teamwork.model.DTO.ContractCreateRequest;
 import com.spring.teamwork.model.DTO.ProofRequest;
 import com.spring.teamwork.model.Entity.AccTransaction;
@@ -12,6 +13,7 @@ import com.spring.teamwork.model.Entity.BetContract;
 import com.spring.teamwork.model.Entity.BetContractWitness;
 import com.spring.teamwork.model.Entity.SysUser;
 import com.spring.teamwork.model.Enum.ContractStatus;
+import com.spring.teamwork.model.Enum.NotificationType;
 import com.spring.teamwork.model.Enum.TransactionType;
 import com.spring.teamwork.model.PageVO;
 import com.spring.teamwork.model.Result;
@@ -49,6 +51,8 @@ public class ContractServiceImpl implements ContractService {
     private PlatformTransactionManager transactionManager;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    private NoticeService noticeService;
     @Value("${invite.base-url}")
     private String inviteBaseUrl;
     @Override
@@ -150,7 +154,7 @@ public class ContractServiceImpl implements ContractService {
         if(betContract == null || betContract.getUserId().equals(userId)){
             throw new BizException("合约不存在或不能见证自己的合约",409);
         }
-        if(contractMapper.countById(Long.valueOf(contractId)) >=5){
+        if(betContractWitnessMapper.countByContractId(Long.valueOf(contractId)) >=5){
             throw new BizException("见证人已经超过5人",409);
         }
         BetContractWitness betContractWitness = new BetContractWitness();
@@ -158,6 +162,15 @@ public class ContractServiceImpl implements ContractService {
         betContractWitness.setContractId(Long.valueOf(contractId));
         betContractWitness.setAcceptedAt(LocalDateTime.now());
         betContractWitnessMapper.insert(betContractWitness);
+
+        // 通知合约创建者：某用户已接受见证邀请
+        SysUser witness = sysUserMapper.selectById(userId);
+        noticeService.sendNotification(
+                betContract.getUserId(),                           // 通知谁 → 合约创建者
+                (witness != null ? witness.getNickname() : "用户") + " 已接受你的见证邀请",
+                betContract.getId(),                                // 关联哪个合约
+                NotificationType.WITNESS_ACCEPTED                   // 什么类型
+        );
 
         AcceptInviteVO acceptInviteVO = new AcceptInviteVO();
         acceptInviteVO.setContractId(Integer.valueOf(contractId));
