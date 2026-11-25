@@ -47,3 +47,10 @@ sa-token:
 
   #demo:
   #  enabled:false
+
+# ==== 甲方结算服务配置 ====
+settle:
+  remote:
+    # 联调时改成甲方实际地址；本地没起甲方服务时设 enabled=false 跳过远程调用
+    url: http://localhost:8080
+    enabled: true
