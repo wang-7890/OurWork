@@ -60,7 +60,7 @@ public class ContractServiceImpl implements ContractService {
         TransactionTemplate transactionTemplate = new TransactionTemplate(transactionManager);
         return transactionTemplate.execute(status -> doCreate(request, userId));
     }
-
+    //获取我的合约
     @Override
     public Result<PageVO<ContractListVO>> getMyContract(ContractStatus status, Integer page, Integer size, Long userId) {
         LambdaQueryWrapper<BetContract> queryWrapper = Wrappers.lambdaQuery();

@@ -1,5 +1,6 @@
 package com.spring.teamwork.Controller;
 
+import cn.dev33.satoken.stp.StpUtil;
 import com.spring.teamwork.Service.ContractService;
 import com.spring.teamwork.model.DTO.ContractCreateRequest;
 import com.spring.teamwork.model.DTO.ProofRequest;
@@ -26,10 +27,10 @@ public class ContractController {
     private ContractService contractService;
 
     @PostMapping("/contracts")
-    public ResponseEntity<Result<ContractDetailVO>> createContract(@RequestBody @Validated ContractCreateRequest request){
-        Long userId = 1L;
-        Result<ContractDetailVO> result = contractService.create(request,userId);
-        if(result.getCode() == 0){
+    public ResponseEntity<Result<ContractDetailVO>> createContract(@RequestBody @Validated ContractCreateRequest request) {
+        Long userId = StpUtil.getLoginIdAsLong();
+        Result<ContractDetailVO> result = contractService.create(request, userId);
+        if (result.getCode() == 0) {
             return ResponseEntity.ok(result);
         }
         return ResponseEntity.status(result.getCode()).body(result);
@@ -39,32 +40,32 @@ public class ContractController {
     public ResponseEntity<Result<PageVO<ContractListVO>>> myContract(
             @RequestParam(required = false) ContractStatus status,
             @RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "10") Integer size){
-        Long userId = 1L;
+            @RequestParam(defaultValue = "10") Integer size) {
+        Long userId = StpUtil.getLoginIdAsLong();
         size = Math.min(size, 50);
         return ResponseEntity.ok(contractService.getMyContract(status, page, size, userId));
     }
 
     @GetMapping("/contracts/{contractId}")
-    public ResponseEntity<Result<ContractDetailVO>> contractDetail(@PathVariable Integer contractId){
+    public ResponseEntity<Result<ContractDetailVO>> contractDetail(@PathVariable Integer contractId) {
         return ResponseEntity.ok(contractService.getContractDetail(contractId));
     }
 
     @PostMapping("/contracts/{contractId}/witness-invite")
-    public ResponseEntity<Result<WitnessInviteVO>> createInvite(@PathVariable Integer contractId){
-        Long userId = 1L;
-        return ResponseEntity.ok(contractService.createInviteUrl(contractId,userId));
+    public ResponseEntity<Result<WitnessInviteVO>> createInvite(@PathVariable Integer contractId) {
+        Long userId = StpUtil.getLoginIdAsLong();
+        return ResponseEntity.ok(contractService.createInviteUrl(contractId, userId));
     }
 
     @PostMapping("/witness-invites/{inviteCode}/accept")
-    public ResponseEntity<Result<AcceptInviteVO>> acceptInvite(@PathVariable String inviteCode){
-        Long userId = 1L;
-        return ResponseEntity.ok(contractService.accept(inviteCode,userId));
+    public ResponseEntity<Result<AcceptInviteVO>> acceptInvite(@PathVariable String inviteCode) {
+        Long userId = StpUtil.getLoginIdAsLong();
+        return ResponseEntity.ok(contractService.accept(inviteCode, userId));
     }
 
     @PostMapping("/contracts/{contractId}/proof")
-    public ResponseEntity<Result<ContractDetailVO.ProofVO>> submit(@PathVariable Long contractId, @RequestBody @Validated ProofRequest request){
-        Long userId = 1L;
+    public ResponseEntity<Result<ContractDetailVO.ProofVO>> submit(@PathVariable Long contractId, @RequestBody @Validated ProofRequest request) {
+        Long userId = StpUtil.getLoginIdAsLong();
         return ResponseEntity.ok(contractService.submitProof(contractId, request, userId));
     }
 }
