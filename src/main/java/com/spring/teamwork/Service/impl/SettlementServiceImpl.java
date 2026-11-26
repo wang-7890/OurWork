@@ -11,14 +11,14 @@ import com.spring.teamwork.model.Enum.NotificationType;
 import com.spring.teamwork.model.Enum.TransactionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Service
 public class SettlementServiceImpl implements SettlementService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
