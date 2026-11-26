@@ -118,7 +118,15 @@ public class SettlementServiceImpl implements SettlementService {
 
     @Override
     public void timeoutSettle() {
-
+        LambdaQueryWrapper<BetContract> queryWrapper = Wrappers.lambdaQuery();
+        queryWrapper.eq(BetContract::getStatus,ContractStatus.VOTING);
+        List<BetContract> betContractList = contractMapper.selectList(queryWrapper);
+        for (BetContract betContract : betContractList) {
+            Duration duration = Duration.between(betContract.getDeadline(),LocalDateTime.now());
+            if (duration.toHours()>24){
+                settle(betContract.getId(), ContractStatus.FAILED);
+            }
+        }
     }
 
     @Override
