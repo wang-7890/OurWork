@@ -18,7 +18,8 @@ public class SaTokenConfig implements WebMvcConfigurer {
                     .notMatch(
                             "/api/auth/register",
                             "/api/auth/login",
-                            "/api/square/**"
+                            "/api/square/**",
+                            "/api/internal/**"
                     )
                     .check(r -> StpUtil.checkLogin());
         })).addPathPatterns("/**");
