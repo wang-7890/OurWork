@@ -20,6 +20,8 @@ import com.spring.teamwork.Service.NoticeService;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class SettlementServiceImpl implements SettlementService {
     @Autowired
@@ -38,6 +40,7 @@ public class SettlementServiceImpl implements SettlementService {
     private AccTransactionMapper accTransactionMapper;
     @Autowired
     private NoticeService noticeService;
+
 
 
     @Override
@@ -148,6 +151,15 @@ public class SettlementServiceImpl implements SettlementService {
 
     @Override
     public void viewCountFlush() {
-
+        Map<Object,Object> counts = stringRedisTemplate.opsForHash().entries("square:view:counts");
+        if (counts.isEmpty()){
+            return;
+        }
+        for (Map.Entry<Object,Object> entry : counts.entrySet()){
+            BetContract update = new BetContract();
+            update.setId(Long.valueOf(entry.getKey().toString()));
+            update.setViewCount(Integer.valueOf(entry.getValue().toString()));
+            contractMapper.updateById(update);
+        }
     }
 }

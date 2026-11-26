@@ -19,4 +19,9 @@ public class ContractScheduleJob {
     public void timeoutSettle(){
         settlementService.timeoutSettle();
     }
+
+    @Scheduled(fixedDelay = 600_000)
+    public void flushViewCount(){
+        settlementService.viewCountFlush();
+    }
 }
