@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.spring.teamwork.Exception.common.BizException;
 import com.spring.teamwork.Mapper.*;
+import com.spring.teamwork.Service.NoticeService;
 import com.spring.teamwork.Service.SettlementService;
 import com.spring.teamwork.model.Entity.*;
 import com.spring.teamwork.model.Enum.ContractStatus;
@@ -14,6 +15,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
+import com.spring.teamwork.Service.NoticeService;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -34,6 +36,9 @@ public class SettlementServiceImpl implements SettlementService {
     private SysNotificationMapper sysNotificationMapper;
     @Autowired
     private AccTransactionMapper accTransactionMapper;
+    @Autowired
+    private NoticeService noticeService;
+
 
     @Override
     public void settle(Long contractId, ContractStatus result) {
@@ -77,6 +82,18 @@ public class SettlementServiceImpl implements SettlementService {
         int rows = contractMapper.updateStatusWhenVoting(contractId,result.name());
         if (rows == 0){
             throw new BizException("合约状态已被修改，结算中止", 409);
+        }
+
+        //结算通知
+        String resultLabel = (result == ContractStatus.SUCCESS) ? "已履约成功" : "已违约";
+        String settledTitle = "「" + betContract.getTitle() + "」" + resultLabel;
+        noticeService.sendNotification(userId, settledTitle, contractId, NotificationType.CONTRACT_SETTLED);
+        List<BetContractWitness> witnesses = betContractWitnessMapper.selectList(
+                new LambdaQueryWrapper<BetContractWitness>()
+                        .eq(BetContractWitness::getContractId, contractId)
+        );
+        for (BetContractWitness w : witnesses) {
+            noticeService.sendNotification(w.getUserId(), settledTitle, contractId, NotificationType.CONTRACT_SETTLED);
         }
     }
 
