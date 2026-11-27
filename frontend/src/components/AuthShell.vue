@@ -70,12 +70,6 @@ defineProps({
   margin: 0;
   padding: 0;
 }
-
-html, body, #app {
-  width: 100%;
-  height: 100%;
-}
-
 /* 最外层容器 */
 .auth-shell {
   width: 100vw;
@@ -277,6 +271,14 @@ html, body, #app {
 .auth-form-card {
   width: 100%;
   max-width: 420px;
+}
+</style>
+<style>
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 </style>
 
