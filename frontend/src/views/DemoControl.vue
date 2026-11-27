@@ -227,94 +227,22 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.demo-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 24px 48px;
-}
-
-.page-header {
-  margin-bottom: 18px;
-}
-
-.page-header h1 {
-  margin: 0 0 8px;
-  color: #182230;
-  font-size: 28px;
-}
-
-.page-header p {
-  margin: 0;
-  color: #667085;
-}
-
-.mode-alert {
-  margin-bottom: 20px;
-  border-radius: 12px;
-}
-
-.action-card,
-.table-card {
-  margin-bottom: 20px;
-  border: 1px solid #e7eaf0;
-  border-radius: 14px;
-}
-
-.action-list {
-  display: grid;
-  gap: 4px;
-}
-
-.action-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 6px 2px;
-}
-
-.action-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.action-meta strong {
-  color: #182230;
-  font-size: 15px;
-}
-
-.action-meta span {
-  color: #667085;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.action-divider {
-  margin: 14px 0;
-}
-
-.table-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.table-header h2 {
-  margin: 0;
-  color: #182230;
-  font-size: 16px;
-}
-
-.demo-table {
-  width: 100%;
-}
-
+.demo-page { max-width: 1200px; margin: 0 auto; padding: 32px 24px 48px; }
+.page-header { margin-bottom: 18px; }
+.page-header h1 { margin: 0 0 8px; color: var(--ink); font-size: 30px; }
+.page-header p { margin: 0; color: var(--ink-3); }
+.mode-alert { margin-bottom: 20px; border-radius: 4px; }
+.action-card, .table-card { margin-bottom: 20px; border: 1px solid var(--line); border-radius: var(--radius-card); }
+.action-list { display: grid; gap: 4px; }
+.action-item { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 6px 2px; }
+.action-meta { display: flex; flex-direction: column; gap: 6px; }
+.action-meta strong { color: var(--ink); font-family: var(--font-display); font-size: 16px; letter-spacing: .03em; }
+.action-meta span { color: var(--ink-3); font-size: 13px; line-height: 1.6; }
+.action-divider { margin: 14px 0; }
+.table-header { display: flex; justify-content: space-between; align-items: center; }
+.table-header h2 { margin: 0; color: var(--ink); font-family: var(--font-display); font-size: 17px; }
+.demo-table { width: 100%; }
 @media (max-width: 768px) {
-  .action-item {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
+  .action-item { flex-direction: column; align-items: stretch; gap: 12px; }
 }
 </style>

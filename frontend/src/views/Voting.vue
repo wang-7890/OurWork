@@ -275,221 +275,40 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.voting-page {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 32px 24px 48px;
-}
-
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.page-header h1 {
-  margin: 0 0 8px;
-  color: #182230;
-  font-size: 28px;
-}
-
-.page-header p {
-  margin: 0;
-  color: #667085;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.empty-state,
-.error-state {
-  padding: 44px 24px;
-  background: #fff;
-  border: 1px solid #e7eaf0;
-  border-radius: 14px;
-}
-
-.empty-guide {
-  margin-bottom: 22px;
-}
-
-.guide-title {
-  margin-bottom: 14px;
-  color: #344054;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.guide-steps {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.guide-step {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #667085;
-  font-size: 13px;
-}
-
-.step-no {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #eaf1ff;
-  color: #2f6bff;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.step-arrow {
-  color: #b6c0d0;
-}
-
-.empty-actions {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.contract-list {
-  display: grid;
-  gap: 18px;
-}
-
-.vote-card {
-  border: 1px solid #e7eaf0;
-  border-radius: 14px;
-}
-
-.title-tags {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.card-title {
-  margin: 0 0 10px;
-  color: #182230;
-  font-size: 18px;
-}
-
-.card-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  color: #98a2b3;
-  font-size: 13px;
-}
-
-.proof-block {
-  margin-top: 16px;
-  padding: 14px 16px;
-  border-radius: 10px;
-  background: #f7f8fc;
-}
-
-.block-title {
-  margin-bottom: 8px;
-  color: #344054;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.proof-text {
-  margin: 0;
-  color: #344054;
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.proof-time {
-  margin-top: 8px;
-  color: #98a2b3;
-  font-size: 12px;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.summary {
-  color: #667085;
-  font-size: 13px;
-}
-
-.footer-actions {
-  display: flex;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.dialog-contract {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: #f7f8fc;
-}
-
-.verdict-group {
-  display: flex;
-  gap: 12px;
-}
-
-.verdict-success {
-  color: #16a36a;
-  font-weight: 600;
-}
-
-.verdict-fail {
-  color: #e05252;
-  font-weight: 600;
-}
-
+.voting-page { max-width: 960px; margin: 0 auto; padding: 32px 24px 48px; }
+.page-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 24px; }
+.page-header h1 { margin: 0 0 8px; color: var(--ink); font-size: 30px; }
+.page-header p { margin: 0; color: var(--ink-3); }
+.header-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.empty-state, .error-state { padding: 44px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card); }
+.empty-guide { margin-bottom: 22px; }
+.guide-title { margin-bottom: 14px; color: var(--ink-2); font-size: 13px; font-weight: 600; }
+.guide-steps { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
+.guide-step { display: flex; align-items: center; gap: 8px; color: var(--ink-3); font-size: 13px; }
+.step-no { display: inline-flex; justify-content: center; align-items: center; width: 23px; height: 23px; border: 1px solid var(--brand-border); border-radius: 50%; background: var(--brand-bg); color: var(--brand); font-size: 12px; font-weight: 600; }
+.step-arrow { color: var(--ink-4); }
+.empty-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.contract-list { display: grid; gap: 18px; }
+.vote-card { border: 1px solid var(--line); border-radius: var(--radius-card); }
+.title-tags { display: flex; gap: 8px; margin-bottom: 10px; }
+.card-title { margin: 0 0 10px; color: var(--ink); font-family: var(--font-display); font-size: 20px; letter-spacing: .03em; }
+.card-meta { display: flex; flex-wrap: wrap; gap: 18px; color: var(--ink-4); font-size: 13px; }
+.proof-block { margin-top: 16px; padding: 14px 16px; border-left: 1px solid var(--brand-border); background: var(--panel); }
+.block-title { margin-bottom: 8px; color: var(--ink-2); font-size: 13px; font-weight: 600; }
+.proof-text { margin: 0; color: var(--ink-2); font-size: 14px; line-height: 1.8; }
+.proof-time { margin-top: 8px; color: var(--ink-4); font-size: 12px; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 16px; }
+.summary { color: var(--ink-3); font-size: 13px; }
+.footer-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.dialog-contract { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding: 12px 14px; border-radius: 3px; background: var(--panel); }
+.verdict-group { display: flex; gap: 12px; }
+.verdict-success { color: var(--success); font-weight: 600; }
+.verdict-fail { color: var(--danger); font-weight: 600; }
 @media (max-width: 720px) {
-  .page-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .card-footer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .footer-actions {
-    justify-content: flex-end;
-  }
-
-  /* 窄屏引导步骤纵向排列，隐藏步骤间箭头 */
-  .guide-steps {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .step-arrow {
-    display: none;
-  }
+  .page-header { align-items: flex-start; flex-direction: column; }
+  .card-footer { flex-direction: column; align-items: stretch; }
+  .footer-actions { justify-content: flex-end; }
+  .guide-steps { flex-direction: column; align-items: flex-start; }
+  .step-arrow { display: none; }
 }
 </style>

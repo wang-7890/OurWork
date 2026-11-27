@@ -174,84 +174,20 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.accept-page {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 24px 24px 48px;
-}
-
-.page-top {
-  margin-bottom: 12px;
-}
-
-.accept-card {
-  border: 1px solid #e7eaf0;
-  border-radius: 14px;
-}
-
-.invite-head h1 {
-  margin: 12px 0 10px;
-  color: #182230;
-  font-size: 24px;
-  line-height: 1.4;
-}
-
-.title-tags {
-  display: flex;
-  gap: 8px;
-}
-
-.criteria {
-  margin: 0;
-  color: #667085;
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 8px;
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 14px 16px;
-  border-radius: 10px;
-  background: #f7f8fc;
-}
-
-.info-item .label {
-  color: #98a2b3;
-  font-size: 12px;
-}
-
-.info-item strong {
-  color: #182230;
-  font-size: 15px;
-}
-
-.info-item strong.deposit {
-  color: #5b5fef;
-}
-
-.state-alert {
-  margin-top: 20px;
-}
-
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 24px;
-}
-
+.accept-page { max-width: 760px; margin: 0 auto; padding: 24px 24px 48px; }
+.page-top { margin-bottom: 12px; }
+.accept-card { border: 1px solid var(--line); border-radius: var(--radius-card); }
+.invite-head h1 { margin: 12px 0 10px; color: var(--ink); font-family: var(--font-display); font-size: 26px; line-height: 1.45; letter-spacing: .035em; }
+.title-tags { display: flex; gap: 8px; }
+.criteria { margin: 0; color: var(--ink-3); font-size: 14px; line-height: 1.8; }
+.info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 8px; }
+.info-item { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border: 1px solid var(--line-soft); border-radius: 3px; background: var(--panel); }
+.info-item .label { color: var(--ink-4); font-size: 12px; }
+.info-item strong { color: var(--ink); font-size: 15px; }
+.info-item strong.deposit { color: var(--brand); }
+.state-alert { margin-top: 20px; }
+.actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
 @media (max-width: 640px) {
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
+  .info-grid { grid-template-columns: 1fr; }
 }
 </style>

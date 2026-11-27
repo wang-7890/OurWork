@@ -285,122 +285,27 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.create-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 24px 48px;
-}
-
-.page-top {
-  margin-bottom: 12px;
-}
-
-.page-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 20px;
-  align-items: start;
-}
-
-.form-card,
-.balance-card,
-.rule-card {
-  border: 1px solid #e7eaf0;
-  border-radius: 14px;
-}
-
-.card-header h1 {
-  margin: 0 0 8px;
-  color: #182230;
-  font-size: 22px;
-}
-
-.card-header p {
-  margin: 0;
-  color: #667085;
-  font-size: 13px;
-}
-
-.create-form {
-  max-width: 640px;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.field-hint {
-  margin-top: 6px;
-  color: #98a2b3;
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  width: 100%;
-}
-
-.side-column {
-  display: grid;
-  gap: 20px;
-}
-
-.balance-card h2,
-.rule-card h2 {
-  margin: 0;
-  color: #182230;
-  font-size: 16px;
-}
-
-.balance-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 9px 0;
-  color: #667085;
-  font-size: 14px;
-}
-
-.balance-row strong {
-  color: #182230;
-  font-weight: 600;
-}
-
-.balance-row strong.available {
-  color: #5b5fef;
-  font-size: 16px;
-}
-
-.balance-row strong.deposit {
-  color: #b45309;
-}
-
-.balance-row strong.insufficient {
-  color: #e05252;
-}
-
-.balance-divider {
-  margin: 8px 0;
-}
-
-.balance-alert {
-  margin-top: 8px;
-}
-
-.rule-list {
-  margin: 0;
-  padding-left: 18px;
-  color: #667085;
-  font-size: 13px;
-  line-height: 2;
-}
-
+.create-page { max-width: 1200px; margin: 0 auto; padding: 24px 24px 48px; }
+.page-top { margin-bottom: 12px; }
+.page-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: start; }
+.form-card, .balance-card, .rule-card { border: 1px solid var(--line); border-radius: var(--radius-card); }
+.card-header h1 { margin: 0 0 8px; color: var(--ink); font-family: var(--font-display); font-size: 25px; letter-spacing: .04em; }
+.card-header p { margin: 0; color: var(--ink-3); font-size: 13px; }
+.create-form { max-width: 640px; }
+.full-width { width: 100%; }
+.field-hint { margin-top: 6px; color: var(--ink-4); font-size: 12px; line-height: 1.6; }
+.form-actions { display: flex; justify-content: flex-end; gap: 12px; width: 100%; }
+.side-column { display: grid; gap: 20px; }
+.balance-card h2, .rule-card h2 { margin: 0; color: var(--ink); font-family: var(--font-display); font-size: 17px; letter-spacing: .04em; }
+.balance-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; color: var(--ink-3); font-size: 14px; }
+.balance-row strong { color: var(--ink); font-weight: 600; }
+.balance-row strong.available { color: var(--brand); font-size: 17px; }
+.balance-row strong.deposit { color: var(--warning-dark); }
+.balance-row strong.insufficient { color: var(--danger); }
+.balance-divider { margin: 8px 0; }
+.balance-alert { margin-top: 8px; }
+.rule-list { margin: 0; padding-left: 18px; color: var(--ink-3); font-size: 13px; line-height: 2; }
 @media (max-width: 960px) {
-  .page-layout {
-    grid-template-columns: 1fr;
-  }
+  .page-layout { grid-template-columns: 1fr; }
 }
 </style>

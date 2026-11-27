@@ -2,7 +2,6 @@
   <el-tag
     :type="tagType"
     effect="light"
-    round
     class="contract-status-tag"
     disable-transitions
   >
