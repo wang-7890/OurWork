@@ -19,7 +19,8 @@ public class SaTokenConfig implements WebMvcConfigurer {
                             "/api/auth/register",
                             "/api/auth/login",
                             "/api/square/**",
-                            "/api/internal/**"
+                            "/api/internal/**",
+                            "/api/profile/credit/*"
                     )
                     .check(r -> StpUtil.checkLogin());
         })).addPathPatterns("/**");
