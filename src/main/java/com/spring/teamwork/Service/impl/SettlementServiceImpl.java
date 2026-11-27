@@ -15,7 +15,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
-import com.spring.teamwork.Service.NoticeService;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -66,9 +65,15 @@ public class SettlementServiceImpl implements SettlementService {
         Long userId = betContract.getUserId();
         Integer deposit = betContract.getDeposit();
         if(result == ContractStatus.SUCCESS){
-            sysUserMapper.unfreezeDeposit(userId,deposit);
+            int rows=sysUserMapper.unfreezeDeposit(userId,deposit);
+            if(rows==0){
+                throw new BizException("冻结金额不足，无法解冻，结算终止",409);
+            }
         }else {
-            sysUserMapper.deductDeposit(userId,deposit);
+            int rows=sysUserMapper.deductDeposit(userId,deposit);
+            if(rows==0){
+                throw new BizException("冻结金额不足，无法扣除，结算终止",409);
+            }
         }
 
         SysUser user = sysUserMapper.selectById(userId);

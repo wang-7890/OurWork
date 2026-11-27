@@ -19,6 +19,9 @@ public class DemoController {
     private final DemoService demoService;
     @PostMapping("/contracts/{contractId}/expire")
     public Result<Void> expire(@PathVariable Long contractId) {
+        if (!demoEnabled) {
+            return Result.fail(403, "演示模式未开启，无法执行此操作");
+        }
         Long userId = null;
         try { userId = StpUtil.getLoginIdAsLong(); } catch (Exception ignored) {}
         demoService.expireContract(contractId, userId);
@@ -26,6 +29,9 @@ public class DemoController {
     }
     @PostMapping("/jobs/settle")
     public Result<Void> triggerSettle() {
+        if (!demoEnabled) {
+            return Result.fail(403, "演示模式未开启，无法执行此操作");
+        }
         demoService.triggerSettleJobs();
         return Result.ok();
     }

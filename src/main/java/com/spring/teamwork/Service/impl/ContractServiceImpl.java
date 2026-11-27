@@ -91,6 +91,9 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public Result<ContractDetailVO> getContractDetail(Integer contractId) {
         BetContract betContract = contractMapper.selectById(contractId);
+        if(betContract==null){
+            throw new BizException("合约不存在",404);
+        }
         //组装ContractDetailVO（含有contract的部分）
         ContractDetailVO contractDetailVO = new ContractDetailVO();
         contractDetailVO.setContractId(betContract.getId());
