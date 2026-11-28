@@ -37,6 +37,7 @@ mybatis-plus:
         logic-delete-value: 1
         logic-not-delete-value: 0
 sa-token:
+  token-name: Authorization
   token-prefix: Bearer
   timeout: 86400
   active-timeout: -1                   # 无自动下线，跟随 timeout
