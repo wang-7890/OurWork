@@ -38,6 +38,9 @@ mybatis-plus:
         logic-not-delete-value: 0
 sa-token:
   token-name: Authorization
+  # 接口文档 1.1 约定 Authorization: Bearer {token}，Sa-Token 默认会把整个请求头当 token，
+  # 必须配置前缀才能让 "Bearer xxx" 中的 xxx 生效（否则登录后第一次鉴权请求就 401）
+  token-prefix: Bearer
   timeout: 86400
   active-timeout: -1                   # 无自动下线，跟随 timeout
   is-concurrent: true                 # 多端同时登录
