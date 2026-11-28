@@ -9,7 +9,7 @@
         <el-button v-if="authStore.isLoggedIn" class="hero-cta" type="primary" size="large" @click="router.push('/contract/create')">
           <el-icon><Promotion /></el-icon>发起对赌
         </el-button>
-        <el-button v-else class="hero-cta" type="primary" size="large" @click="router.push('/login')">登录后发起对赌</el-button>
+        <el-button v-else class="hero-cta" type="primary" size="large" @click="router.push('/login')">登录后发起契约</el-button>
       </div>
 
       <div class="hero-deco" aria-hidden="true">

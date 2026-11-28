@@ -90,10 +90,10 @@
             <el-empty
               v-else-if="!contractsLoading"
               class="empty-state"
-              description="暂无相关合约，去发起一个对赌吧"
+              description="暂无相关合约，去发起一个吧"
             >
               <el-button type="primary" @click="router.push('/contract/create')">
-                发起对赌
+                发起合约
               </el-button>
             </el-empty>
           </div>

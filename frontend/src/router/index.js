@@ -40,7 +40,7 @@ const routes = [
     name: 'ContractCreate',
     component: () => import('../views/ContractCreate.vue'),
     meta: {
-      title: '发起对赌'
+      title: '发起契约'
     }
   },
   {
@@ -109,9 +109,9 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   if (to.meta?.title) {
-    document.title = `${to.meta.title} - 微承诺对赌平台`
+    document.title = `${to.meta.title} - 微承诺契约平台`
   } else {
-    document.title = '微承诺对赌平台'
+    document.title = '微承诺契约平台'
   }
 
   if (to.meta?.public) {

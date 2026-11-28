@@ -44,7 +44,7 @@
     </div>
 
     <footer class="auth-footer-line">
-      <span>微承诺对赌平台</span>
+      <span>微承诺契约平台</span>
       <span>简约 / 可信赖 / 有辨识度</span>
     </footer>
   </div>
