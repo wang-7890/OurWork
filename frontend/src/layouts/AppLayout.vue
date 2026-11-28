@@ -18,7 +18,7 @@
           router
         >
           <el-menu-item index="/square">合约广场</el-menu-item>
-          <el-menu-item v-if="authStore.isLoggedIn" index="/contract/create">发起对赌</el-menu-item>
+          <el-menu-item v-if="authStore.isLoggedIn" index="/contract/create">发起契约</el-menu-item>
           <el-menu-item v-if="authStore.isLoggedIn" index="/voting">待裁决</el-menu-item>
           <el-menu-item v-if="authStore.isLoggedIn && isMockMode" index="/demo/control">演示控制</el-menu-item>
         </el-menu>

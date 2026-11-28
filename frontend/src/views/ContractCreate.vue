@@ -11,7 +11,7 @@
       <el-card class="form-card" shadow="never">
         <template #header>
           <div class="card-header">
-            <h1>发起对赌</h1>
+            <h1>发起契约</h1>
             <p>公开你的承诺，缴纳押金并邀请见证人，按时完成即可取回押金</p>
           </div>
         </template>
