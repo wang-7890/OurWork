@@ -7,7 +7,7 @@
         <h1>发现值得见证的目标</h1>
         <p>立下目标、押上押金、邀请朋友见证——按时兑现取回押金。</p>
         <el-button v-if="authStore.isLoggedIn" class="hero-cta" type="primary" size="large" @click="router.push('/contract/create')">
-          <el-icon><Promotion /></el-icon>发起对赌
+          <el-icon><Promotion /></el-icon>发起契约
         </el-button>
         <el-button v-else class="hero-cta" type="primary" size="large" @click="router.push('/login')">登录后发起契约</el-button>
       </div>
