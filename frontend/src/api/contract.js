@@ -34,7 +34,7 @@ export function acceptInviteApi(inviteCode) {
 
 // 4.1 我的待裁决列表
 export function getPendingVotesApi() {
-  return request.get('/voting/pending')
+  return request.get('/verdicts/pending')
 }
 
 // 4.2 提交投票（verdict 为 SUCCESS / FAIL）

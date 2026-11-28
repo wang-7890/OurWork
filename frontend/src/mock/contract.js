@@ -838,7 +838,7 @@ export default [
 
   // 4.1 我的待裁决列表（我是见证人、合约待裁决、我还没投票）
   {
-    url: '/api/voting/pending',
+    url: '/api/verdicts/pending',
     method: 'get',
     response: ({ headers }) => {
       const viewer = findUserByToken(headers)
