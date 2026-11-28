@@ -47,7 +47,7 @@ sa-token:
   is-log: false
 
 demo:
-  enabled: true
+  enabled: false
 settle:
   remote:
     url: http://localhost:8080
